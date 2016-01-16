@@ -36,11 +36,11 @@ public class CreateWindow extends JFrame{
 	 */
 	public static void main(String[] args) {
 		Connect connexion = new Connect(9600,"/dev/ttyS48");
-		try {
+		/*try {
 			connexion.startConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		new CreateWindow(true, connexion);
 				
 	}
@@ -119,27 +119,27 @@ public class CreateWindow extends JFrame{
 	private JPanel panelButtonsMove(){
 		JPanel buttonsPanel = new JPanel(new BorderLayout());
 		
-		ImageIcon imgRight = new ImageIcon(getClass().getResource("/img/right.jpg"));
+		ImageIcon imgRight = new ImageIcon(getClass().getResource("/img/right.gif"));
 		JButton moveRightButton = new JButton(scaleIcon(imgRight, 50, 50));
-		//moveRightButton.setPressedIcon(scaleIcon(imgLeft,50,50));
+		moveRightButton.setPressedIcon(scaleIcon(new ImageIcon(getClass().getResource("/img/rightPushed.gif")),50,50));
 		moveRightButton.setBorder(BorderFactory.createEmptyBorder());
 		
-		ImageIcon imgLeft = new ImageIcon(getClass().getResource("/img/left.jpg"));
+		ImageIcon imgLeft = new ImageIcon(getClass().getResource("/img/left.gif"));
 		JButton moveLeftButton = new JButton(scaleIcon(imgLeft, 50, 50));
-		//moveLeftButton.setPressedIcon(scaleIcon(imgLeft,50,50));
+		moveLeftButton.setPressedIcon(scaleIcon(new ImageIcon(getClass().getResource("/img/leftPushed.gif")),50,50));
 		moveLeftButton.setBorder(BorderFactory.createEmptyBorder());
 		
-		ImageIcon imgBack = new ImageIcon(getClass().getResource("/img/back.jpg"));
+		ImageIcon imgBack = new ImageIcon(getClass().getResource("/img/back.gif"));
 		JButton moveBackButton = new JButton(scaleIcon(imgBack, 50, 50));
-		//moveBackButton.setPressedIcon(scaleIcon(imgLeft,50,50));
+		moveBackButton.setPressedIcon(scaleIcon(new ImageIcon(getClass().getResource("/img/backPushed.gif")),50,50));
 		moveBackButton.setBorder(BorderFactory.createEmptyBorder());
 		
-		ImageIcon imgForward = new ImageIcon(getClass().getResource("/img/forward.jpg"));
+		ImageIcon imgForward = new ImageIcon(getClass().getResource("/img/forward.gif"));
 		JButton moveForwardButton = new JButton(scaleIcon(imgForward, 50, 50));
-		//moveForwardButton.setPressedIcon(scaleIcon(imgBack,50,50));
+		moveForwardButton.setPressedIcon(scaleIcon(new ImageIcon(getClass().getResource("/img/forwardPushed.gif")),50,50));
 		moveForwardButton.setBorder(BorderFactory.createEmptyBorder());
 		
-		ImageIcon imgPlain = new ImageIcon(getClass().getResource("/img/plain.jpg"));
+		ImageIcon imgPlain = new ImageIcon(getClass().getResource("/img/plain.gif"));
 		centerButton = new JButton(scaleIcon(imgPlain, 50, 50));
 		centerButton.setBorder(BorderFactory.createEmptyBorder());
 		
@@ -168,12 +168,12 @@ public class CreateWindow extends JFrame{
 	private JPanel panelUpDown(){
 		JPanel updown = new JPanel( new BorderLayout());
 		
-		ImageIcon imgUp = new ImageIcon(getClass().getResource("/img/up1.jpg"));
+		ImageIcon imgUp = new ImageIcon(getClass().getResource("/img/up.gif"));
 		JButton moveUpButton = new JButton(scaleIcon(imgUp,50,50));
 		//moveUpButton.setPressedIcon(scaleIcon(imgLeft,50,50));
 		
 		moveUpButton.setBorder(BorderFactory.createEmptyBorder());
-		ImageIcon imgDown = new ImageIcon(getClass().getResource("/img/down2.jpg"));
+		ImageIcon imgDown = new ImageIcon(getClass().getResource("/img/down.gif"));
 		JToggleButton moveDownButton = new JToggleButton(scaleIcon(imgDown,50,50));
 		moveDownButton.setBorder(BorderFactory.createEmptyBorder());
 		//moveDownButton.setPressedIcon(scaleIcon(imgLeft,50,50));
@@ -320,7 +320,7 @@ public class CreateWindow extends JFrame{
                         public void run() {
 		            		while(pressed){
 			            		System.out.println("Going back");
-			            		connexion.sendData("back");
+			            		//connexion.sendData("back");
 		            		}
                         }
             		}.start();
@@ -332,7 +332,7 @@ public class CreateWindow extends JFrame{
                         public void run() {
 		            		while(pressed){
 			            		System.out.println("Going forward");
-			            		connexion.sendData("forward");
+			            		//connexion.sendData("forward");
 		            		}
                         }
             		}.start();
@@ -344,7 +344,7 @@ public class CreateWindow extends JFrame{
                         public void run() {
 		            		while(pressed){
 			            		System.out.println("Going right");
-			            		connexion.sendData("right");
+			            		//connexion.sendData("right");
 		            		}
                         }
             		}.start();
@@ -356,7 +356,7 @@ public class CreateWindow extends JFrame{
                         public void run() {
 		            		while(pressed){
 			            		System.out.println("Going left");
-			            		connexion.sendData("Left");
+			            		//connexion.sendData("Left");
 		            		}
                         }
             		}.start();
@@ -368,7 +368,7 @@ public class CreateWindow extends JFrame{
                         public void run() {
 		            		while(pressed){
 			            		System.out.println("Up");
-			            		connexion.sendData("up");
+			            		//connexion.sendData("up");
 		            		}
                         }
             		}.start();
@@ -380,7 +380,7 @@ public class CreateWindow extends JFrame{
                         public void run() {
 		            		while(pressed){
 			            		System.out.println("down");
-			            		connexion.sendData("down");
+			            		//connexion.sendData("down");
 		            		}
                         }
             		}.start();
